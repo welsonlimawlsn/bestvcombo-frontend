@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {KeycloakService} from "keycloak-angular";
 import {Observable} from "rxjs";
 import {KeycloakProfile} from "keycloak-js";
+import {HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,21 @@ export class UsuarioService {
         observer.complete();
       })
     });
+  }
+
+  hasUsuarioLogado() {
+    return new Observable(o => {
+      this.keycloakService.isLoggedIn().then(isLogged => {
+        o.next(isLogged);
+        o.complete();
+      }).catch(error => {
+        o.error(error);
+        o.complete();
+      });
+    });
+  }
+
+  addTokenToHeader(headers?: HttpHeaders) {
+    return this.keycloakService.addTokenToHeader(headers);
   }
 }

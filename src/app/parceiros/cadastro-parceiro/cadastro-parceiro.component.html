@@ -1,67 +1,96 @@
-<div class="container">
-  <h1>Cadastro de Parceiro</h1>
-  <h2>Primeiramente, informe seus dados</h2>
-  <h3>As informações da sua loja serão solicitadas posteriormente</h3>
-  <form [formGroup]="formulario">
-    <div>
-      <mat-form-field>
-        <mat-label>Nome</mat-label>
-        <input matInput formControlName="nome">
-        <mat-error *ngIf="formulario.get('nome')?.invalid">Nome é obrigatório</mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Sobrenome</mat-label>
-        <input matInput formControlName="sobrenome">
-        <mat-error *ngIf="formulario.get('sobrenome')?.invalid">Sobrenome é obrigatório</mat-error>
-      </mat-form-field>
+<div class="container pb-4">
+  <div class="row p-5">
+    <app-logo></app-logo>
+  </div>
+  <div class="row">
+    <div class="col p-3">
+      <h1>olá, parceiro! entre ou crie a sua conta para começar a vender seus produtos!</h1>
     </div>
-
-    <div>
-      <mat-form-field>
-        <mat-label>CPF</mat-label>
-        <input matInput formControlName="cpf">
-        <mat-error *ngIf="formulario.get('cpf')?.invalid">CPF é obrigatório</mat-error>
-      </mat-form-field>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-12 p-3">
+      <h2>você já tem uma conta?</h2>
+      <h3>você pode entrar clicando no botão abaixo!</h3>
+      <button mat-button (click)="fazerLogin()">entrar</button>
     </div>
+    <div class="col-md-6 col-sm-12 left-md-divider p-3 pe-lg-5 ps-lg-5">
+      <h2>você ainda não tem uma conta?</h2>
+      <h3>preencha com os seus dados pessoais no formulário abaixo e posteriormente pediremos informações do seu
+        estabelecimento</h3>
+      <form [formGroup]="formulario" autocomplete="off">
+        <div class="row">
+          <div class="col-md-12 col-lg-6">
+            <mat-form-field appearance="fill">
+              <mat-label>nome</mat-label>
+              <input matInput formControlName="nome">
+              <mat-error *ngIf="formulario.get('nome')?.invalid">campo obrigatório</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12 col-lg-6">
+            <mat-form-field appearance="fill">
+              <mat-label>sobrenome</mat-label>
+              <input matInput formControlName="sobrenome">
+              <mat-error *ngIf="formulario.get('sobrenome')?.invalid">campo obrigatório</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
 
-    <div>
-      <mat-form-field>
-        <mat-label>E-mail</mat-label>
-        <input matInput formControlName="email">
-        <mat-error *ngIf="formulario.get('email')?.invalid">E-mail é obrigatório</mat-error>
-      </mat-form-field>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>cpf</mat-label>
+            <input matInput formControlName="cpf" maxlength="14" mascara="###.###.###-##">
+            <mat-error *ngIf="formulario.get('cpf')?.errors?.cpfInvalido">cpf invalido</mat-error>
+            <mat-error *ngIf="formulario.get('cpf')?.errors?.required">campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>e-mail</mat-label>
+            <input matInput formControlName="email">
+            <mat-error *ngIf="formulario.get('email')?.errors?.email">e-mail inválido</mat-error>
+            <mat-error *ngIf="formulario.get('email')?.errors?.required">campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-lg-6">
+            <mat-form-field appearance="fill">
+              <mat-label>usuário</mat-label>
+              <input matInput formControlName="usuario">
+              <mat-error *ngIf="formulario.get('usuario')?.invalid">campo obrigatório</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-12 col-lg-6">
+            <mat-form-field appearance="fill">
+              <mat-label>senha</mat-label>
+              <input matInput type="password" formControlName="senha">
+              <mat-error *ngIf="formulario.get('senha')?.invalid">campo obrigatório</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div formGroupName="endereco" class="row">
+          <h3>informe o endereço de sua residência</h3>
+          <div class="col-md-12 col-lg-6">
+            <mat-form-field appearance="fill">
+              <mat-label>cep</mat-label>
+              <input matInput mascara="#####-###" formControlName="cep">
+              <mat-error *ngIf="formulario.get('endereco.cep')?.invalid">campo obrigatório</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12 col-lg-6">
+            <mat-form-field appearance="fill">
+              <mat-label>número</mat-label>
+              <input matInput formControlName="numero">
+              <mat-error *ngIf="formulario.get('endereco.numero')?.invalid">campo obrigatório</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <button mat-button type="submit" [disabled]="formulario.invalid" (click)="cadastraParceiro()">cadastrar</button>
+      </form>
     </div>
-
-    <div>
-      <mat-form-field>
-        <mat-label>Usuário</mat-label>
-        <input matInput formControlName="usuario">
-        <mat-error *ngIf="formulario.get('usuario')?.invalid">Usuário é obrigatório</mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Senha</mat-label>
-        <input matInput type="password" formControlName="senha">
-        <mat-error *ngIf="formulario.get('senha')?.invalid">Senha é obrigatório</mat-error>
-      </mat-form-field>
-    </div>
-
-    <div formGroupName="endereco">
-      <h3>Informe o endereço de sua residencia</h3>
-      <mat-form-field>
-        <mat-label>CEP</mat-label>
-        <input matInput formControlName="cep">
-        <mat-error *ngIf="formulario.get('endereco.cep')?.invalid">CEP é obrigatório</mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Número</mat-label>
-        <input matInput formControlName="numero">
-        <mat-error *ngIf="formulario.get('endereco.numero')?.invalid">Número é obrigatório</mat-error>
-      </mat-form-field>
-    </div>
-
-    <button mat-button type="submit" [disabled]="formulario.invalid" (click)="cadastraParceiro()">Cadastrar</button>
-  </form>
+  </div>
 </div>

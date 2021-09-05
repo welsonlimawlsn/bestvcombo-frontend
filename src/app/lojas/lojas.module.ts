@@ -7,20 +7,22 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
   declarations: [
     CadastroLojaComponent
   ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatButtonModule
-  ],
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatButtonModule,
+        SharedModule
+    ],
   exports: [
     CadastroLojaComponent
   ],

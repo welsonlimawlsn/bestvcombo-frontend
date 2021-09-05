@@ -11,6 +11,11 @@ export class AppComponent implements OnInit {
   isAuthenticated: boolean = false;
   perfil!: KeycloakProfile;
 
+  menu = [
+    {texto: 'Inicio', link: '/parceiros', roles: ['PAPEL_PARCEIRO']},
+    {texto: 'Parceiros', link: '/parceiros/listar', roles: ['PAPEL_ADMINISTRADOR']}
+  ];
+
   constructor(private keycloakService: KeycloakService) {
   }
 
@@ -20,5 +25,9 @@ export class AppComponent implements OnInit {
     if (this.isAuthenticated) {
       this.perfil = await this.keycloakService.loadUserProfile();
     }
+  }
+
+  getMenus() {
+    return this.menu.filter(m => m.roles.some(r => this.keycloakService.isUserInRole(r)));
   }
 }

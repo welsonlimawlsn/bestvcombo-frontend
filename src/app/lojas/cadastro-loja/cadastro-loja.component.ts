@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LojaService} from "../loja.service";
+import {cnpjValidator} from "../../shared/cnpj-validator.directive";
 
 @Component({
   selector: 'app-cadastro-loja',
@@ -23,9 +24,13 @@ export class CadastroLojaComponent implements OnInit {
   ngOnInit(): void {
     this.formulario = this.fb.group({
       nome: ['', Validators.required],
-      cnpj: ['', Validators.required],
+      cnpj: ['', [
+        Validators.required,
+        Validators.minLength(14),
+        cnpjValidator
+      ]],
       endereco: this.fb.group({
-        cep: ['', Validators.required],
+        cep: ['', [Validators.required, Validators.minLength(8)]],
         numero: ['', Validators.required]
       })
     });

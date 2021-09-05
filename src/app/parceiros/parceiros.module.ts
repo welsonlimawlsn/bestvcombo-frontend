@@ -13,7 +13,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {LojasModule} from "../lojas/lojas.module";
-
+import {SharedModule} from "../shared/shared.module";
 
 let routes: Routes = [
   {
@@ -50,7 +50,8 @@ let routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    LojasModule
+    LojasModule,
+    SharedModule
   ],
   providers: [
     ParceiroService

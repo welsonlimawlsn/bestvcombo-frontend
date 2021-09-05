@@ -1,4 +1,3 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '~@angular/material' as mat;
@@ -35,5 +34,164 @@ $frontend-bestcombo-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-drawer-container {
+  background-color: #C92020;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', "Helvetica Neue", sans-serif;
+  color: #FFF;
+}
+
+.mat-h1, .mat-headline, .mat-typography h1 {
+  font-family: 'Quicksand', "Helvetica Neue", sans-serif;
+  color: #FFF;
+  font-weight: 800;
+}
+
+.mat-h2, .mat-title, .mat-typography h2 {
+  font-family: 'Quicksand', "Helvetica Neue", sans-serif;
+  color: #FFF;
+  font-weight: 500;
+}
+
+.mat-h3, .mat-subheading-2, .mat-typography h3 {
+  font-family: 'Quicksand', "Helvetica Neue", sans-serif;
+  color: #FFF;
+}
+
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  box-sizing: border-box;
+}
+
+.mat-form-field {
+  display: block !important;
+}
+
+.mat-button, .mat-stroked-button {
+  background-color: #FFFFFF;
+  color: #C92020;
+  font-weight: 700;
+}
+
+.mat-button, .mat-raised-button, .mat-stroked-button, .mat-flat-button, .mat-fab, .mat-mini-fab {
+  font-family: 'Quicksand', "Helvetica Neue", sans-serif;
+  font-size: 20px;
+}
+
+
+.mat-button, .mat-stroked-button, .mat-flat-button {
+  line-height: 55px !important;
+  min-width: 200px !important;
+}
+
+@media (min-width:768px) {
+  .left-md-divider {
+    border-left: 1px solid #FFF;
+  }
+}
+
+/*XS*/
+@media (max-width: 575px) {
+
+}
+
+/*SM*/
+@media (min-width: 576px) {
+
+}
+
+/*MD*/
+@media (min-width: 768px) {
+
+}
+
+/*LG*/
+@media (min-width: 992px) {
+
+}
+
+/*XL*/
+@media (min-width: 1200px) {
+
+}
+
+/*XXL*/
+@media (min-width: 1400px) {
+
+}
+
+app-logo {
+  display: inline !important;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #FFFFFF;
+}
+
+.mat-form-field {
+  font-family: 'Quicksand', "Helvetica Neue", sans-serif;
+}
+
+.mat-body, .mat-body-1, .mat-typography {
+  font: 400 18px / 20px 'Quicksand', "Helvetica Neue", sans-serif;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #C92020;
+}
+
+.mat-error {
+  color: #FFFFFF;
+}
+
+.mat-form-field-subscript-wrapper {
+  margin-top: 0;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-subscript-wrapper {
+  padding: 0 !important;
+}
+
+.mat-form-field-underline {
+  display: none;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 4px !important;
+}
+
+.mat-toolbar {
+  background: #FFFFFF;
+}
+
+.mat-drawer {
+  background-color: #b41d1d;
+}
+
+.mat-list-base .mat-list-item {
+  color: #FFFFFF;
+  font-family: 'Quicksand', "Helvetica Neue", sans-serif;
+}
+
+.container {
+  background: rgba(255, 255, 255, .1);
+  text-align: center;
+  margin: 50px auto;
+  border-radius: 20px;
+}
+
+.mat-button.mat-accent, .mat-icon-button.mat-accent, .mat-stroked-button.mat-accent {
+  color: #FFFFFF;
+  background-color: #C92020;
+}
