@@ -1,0 +1,7 @@
+<div class="container">
+  <div *ngIf="lojas">
+    <mat-card *ngFor="let loja of lojas">
+      <mat-card-title>{{loja.nome}}</mat-card-title>
+    </mat-card>
+  </div>
+</div>

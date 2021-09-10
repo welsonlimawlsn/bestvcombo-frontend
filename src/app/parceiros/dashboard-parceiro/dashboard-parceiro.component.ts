@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {LojaService} from "../../lojas/loja.service";
+import {LojaService} from "../../shared/sevices/loja.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({

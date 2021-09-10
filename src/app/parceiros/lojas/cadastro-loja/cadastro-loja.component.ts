@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {LojaService} from "../loja.service";
-import {cnpjValidator} from "../../shared/cnpj-validator.directive";
+import {LojaService} from "../../../shared/sevices/loja.service";
+import {cnpjValidator} from "../../../shared/cnpj-validator.directive";
 
 @Component({
   selector: 'app-cadastro-loja',
