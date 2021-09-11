@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
 
   menu = [
     {texto: 'Inicio', link: '/parceiros', roles: ['PAPEL_PARCEIRO']},
-    {texto: 'Parceiros', link: '/parceiros/listar', roles: ['PAPEL_ADMINISTRADOR']}
+    {texto: 'Parceiros', link: '/parceiros/listar', roles: ['PAPEL_ADMINISTRADOR']},
+    {texto: 'Produtos', link: '/parceiros/produtos', roles: ['PAPEL_PARCEIRO']}
   ];
 
   constructor(private keycloakService: KeycloakService) {

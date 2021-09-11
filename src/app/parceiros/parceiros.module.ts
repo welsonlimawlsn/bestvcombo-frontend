@@ -14,6 +14,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {LojasModule} from "./lojas/lojas.module";
 import {SharedModule} from "../shared/shared.module";
+import {ListaProdutosComponent} from "./produtos/lista-produtos/lista-produtos.component";
 
 let routes: Routes = [
   {
@@ -30,6 +31,13 @@ let routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       roles: ['PAPEL_ADMINISTRADOR']
+    }
+  },
+  {
+    path: 'produtos',
+    loadChildren: () => import('./produtos/produtos.module').then(m => m.ProdutosModule),
+    data: {
+      roles: ['PAPEL_PARCEIRO']
     }
   },
   {path: 'cadastro', component: CadastroParceiroComponent},

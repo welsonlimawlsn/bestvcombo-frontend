@@ -1,0 +1,29 @@
+<div >
+
+
+  <div class="row p-3 p-lg-5">
+    <form autocomplete="off" [formGroup]="formulario" *ngIf="formulario">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>nome do produto</mat-label>
+          <input matInput formControlName="nome">
+          <mat-error *ngIf="formulario.get('nome')?.errors?.required">campo obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>descrição</mat-label>
+          <input matInput  formControlName="descricao">
+          <mat-error *ngIf="formulario.get('descricao')?.errors?.required">campo obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>preço</mat-label>
+          <input matInput  formControlName="preco">
+          <mat-error *ngIf="formulario.get('preco')?.errors?.required">campo obrigatório</mat-error>
+        </mat-form-field>
+      </div>
+
+      <button mat-button type="submit" [disabled]="formulario.invalid" (click)="cadastraProduto()">cadastrar</button>
+    </form>
+  </div>
+</div>
